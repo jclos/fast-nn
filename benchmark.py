@@ -8,14 +8,15 @@ def generate_dataset(n_features, n_rows):
     return np.random.rand(n_rows, n_features)
 
 k = 5
-n_instances = 10000
+n_instances = 5000
 n_features = 300
-
-n_tests = 10
+n_tests = 5
 
 times_vec_cos = []
 times_leg = []
 times_vec = []
+
+
 
 for i in range(0, n_tests):
     dataset = generate_dataset(n_features, n_instances)
@@ -46,12 +47,6 @@ for i in range(0, n_tests):
             duration = end - start
             times_vec.append(duration)
 
-
-print("Vectorised cosine")
-print(np.mean(times_vec_cos))
-print(np.std(times_vec_cos))
-print("Averaged over ", len(times_vec_cos), " elements")
-
 print("Legacy")
 print(np.mean(times_leg))
 print(np.std(times_leg))
@@ -61,3 +56,10 @@ print("Vectorised distance")
 print(np.mean(times_vec))
 print(np.std(times_vec))
 print("Averaged over ", len(times_vec), " elements")
+
+print("Vectorised cosine")
+print(np.mean(times_vec_cos))
+print(np.std(times_vec_cos))
+print("Averaged over ", len(times_vec_cos), " elements")
+
+
